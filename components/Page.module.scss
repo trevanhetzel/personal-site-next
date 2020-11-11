@@ -1,0 +1,41 @@
+.wrapper {
+	&:nth-child(odd) {
+		background: #F9F9F9;
+	}
+}
+
+.container {
+	padding: 40px 30px 80px;
+	width: 1480px;
+	max-width: 100%;
+	margin: 0 auto;
+
+	@media (min-width: 820px) {
+		padding: 80px 30px;
+	}
+
+	* {
+		max-width: 100%;
+	}
+
+	h2 {
+		margin: 45px 0 20px;
+	}
+}
+
+.columns {
+	display: flex;
+
+	&:nth-child(even) {
+		background: #F9F9F9;
+	}
+
+	h1, h2{
+		margin-top: 0;
+		flex: 0 0 27%;
+	}
+
+	p:first-child {
+		margin-top: 0;
+	}
+}

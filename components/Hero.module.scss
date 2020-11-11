@@ -1,0 +1,19 @@
+.container {
+	position: relative;
+	padding: 20px 30px 80px;
+	width: 1480px;
+	max-width: 100%;
+	margin: 0 auto;
+
+	@media (min-width: 820px) {
+		padding: 90px 30px 210px;
+	}
+
+	p {
+		max-width: 590px;
+	}
+
+	a {
+		margin-top: 20px;
+	}
+}

@@ -1,0 +1,13 @@
+.container {
+	display: flex;
+  align-items: center;
+}
+
+.logo {
+	width: 130px;
+	fill: #fc4501;
+
+	@media (min-width: 1130px) {
+		width: 100%;
+	}
+}

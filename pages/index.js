@@ -1,10 +1,11 @@
 import withApollo from '../lib/apollo';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import Link from 'next/link';
+import Layout from '../components/Layout';
+import Hero from '../components/Hero';
+import Posts from '../components/Posts';
 
 const Home = () => {
-
 	const { data } = useQuery(gql`
 		query {
 			posts {
@@ -13,6 +14,7 @@ const Home = () => {
 					title
 					slug
 					excerpt
+					date
 				}
 			}
 		}
@@ -21,19 +23,11 @@ const Home = () => {
 	const posts = data?.posts?.nodes;
 
 	return (
-		<section>
-			{posts &&
-				posts.map(post => (
-					<article key={post.id}>
-						<h2>
-							<Link href="/[slug]" as={`/${post.slug}`}>
-								<a>{post.title}</a>
-							</Link>
-						</h2>
-					</article>
-				)
-			)}
-		</section>
+		<Layout>
+			<Hero />
+
+			<Posts posts={posts} />
+		</Layout>
 	);
 };
 

@@ -2,9 +2,11 @@ import withApollo from '../lib/apollo';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { useRouter } from 'next/router';
+import Layout from '../components/Layout';
+import Article from '../components/Article';
+import Page from '../components/Page';
 
 const Post = () => {
-
 	const { slug } = useRouter().query;
 
 	const { data } = useQuery(gql`
@@ -12,20 +14,29 @@ const Post = () => {
 			postBy(slug: "${slug}") {
 				title
 				content
+				date
+				contentType {
+					node {
+						name
+					}
+				}
 			}
 		}
 	`);
 
 	const post = data?.postBy;
+	const post_type = post?.contentType.node.name;
 
 	return (
-		<div>
-			<h1>{post?.title}</h1>
+		<Layout>
+			{post_type === 'page' &&
+				<Page post={post} />
+			}
 
-			<article>
-				<div dangerouslySetInnerHTML={{__html: post?.content}} />
-			</article>
-		</div>
+			{post_type === 'post' &&
+				<Article post={post} />
+			}
+		</Layout>
 	);
 };
 
