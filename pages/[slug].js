@@ -34,12 +34,10 @@ const Post = () => {
 	const post = data?.postBy;
 	const post_type = post?.contentType.node.name;
 
-	console.log(post?.featuredImage.node)
-
 	return (
 		<Layout>
 			{post_type === 'page' &&
-				<Page post={post} />
+				<Page post={post} slug={slug} />
 			}
 
 			{post_type === 'post' &&
