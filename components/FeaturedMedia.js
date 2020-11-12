@@ -1,6 +1,11 @@
 const FeaturedMedia = (props) => {
   return (
-		<img src={props.media?.url} />
+		<img
+			alt={props.image.description ? props.image.description : props.image.title}
+      src={props.image.sourceUrl}
+			srcSet={props.image.srcSet}
+			style={{ margin: '60px 0 0' }}
+		/>
   );
 };
 

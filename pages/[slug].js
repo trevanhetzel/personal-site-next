@@ -20,12 +20,21 @@ const Post = () => {
 						name
 					}
 				}
+				featuredImage {
+					node {
+						srcSet
+						sourceUrl
+						title
+					}
+				}
 			}
 		}
 	`);
 
 	const post = data?.postBy;
 	const post_type = post?.contentType.node.name;
+
+	console.log(post?.featuredImage.node)
 
 	return (
 		<Layout>

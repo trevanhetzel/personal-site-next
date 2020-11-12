@@ -2,6 +2,8 @@ import styles from './Page.module.scss';
 import FeaturedMedia from './FeaturedMedia';
 
 const Article = (props) => {
+	const featuredImage = props.post?.featuredImage?.node;
+
   return (
 		<div className={styles.wrapper}>
 			<div className={styles.container}>
@@ -10,7 +12,7 @@ const Article = (props) => {
 
 					<div>
 						<div dangerouslySetInnerHTML={{ __html: props.post?.content }}></div>
-						<FeaturedMedia media={props.post?.featured} />
+						<FeaturedMedia image={featuredImage} />
 					</div>
 				</div>
 			</div>
