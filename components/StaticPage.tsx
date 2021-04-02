@@ -4,7 +4,7 @@ import { gql } from 'apollo-boost';
 import styles from './Page.module.scss';
 import FeaturedMedia from './FeaturedMedia';
 
-const Article = (props) => {
+const StaticPage = (props) => {
 	const featuredImage = props.post?.featuredImage?.node;
 
 	const { data: custom_fields_data } = useQuery(gql`
@@ -56,4 +56,4 @@ const Article = (props) => {
 	);
 };
 
-export default withApollo()(Article);
+export default withApollo()(StaticPage);
