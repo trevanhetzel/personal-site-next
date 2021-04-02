@@ -7,11 +7,11 @@ import DribbbleIcon from "./svg/Dribbble";
 import EmailIcon from "./svg/Email";
 import SearchIcon from "./svg/Search";
 
-const Header = () => {
+const Header = (props) => {
 	return (
-		<div className={styles.container}>
+		<div className={`${styles.container} ${props.secondary ? styles.orange : '' }`}>
 			<Link href="/">
-				<a><Logo /></a>
+				<a><Logo white={props.secondary}/></a>
 			</Link>
 
 			<nav className={styles.nav}>
@@ -36,7 +36,7 @@ const Header = () => {
 				</ul>
 			</nav>
 
-			<ul className={styles.icons}>
+			<ul className={`${styles.icons} ${props.secondary ? styles.white : '' }`}>
 				<li className={styles.icon}>
 					<Link href="https://twitter.com/trevanhetzel" target={ '_blank' }>
 						<a><TwitterIcon /></a>

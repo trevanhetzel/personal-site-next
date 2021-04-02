@@ -35,7 +35,7 @@ const Post = () => {
 	const post_type = post?.contentType.node.name;
 
 	return (
-		<Layout>
+		<Layout secondary>
 			{post_type === 'page' &&
 				<Page post={post} slug={slug} />
 			}

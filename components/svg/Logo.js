@@ -1,9 +1,9 @@
 import styles from './Logo.module.scss'
 
-const SVG = () => {
+const SVG = (props) => {
   return (
     <div className={styles.container}>
-      <svg xmlns="http://www.w3.org/2000/svg" width="176.156" height="51.185" viewBox="0 0 176.156 51.185" className={styles.logo}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="176.156" height="51.185" viewBox="0 0 176.156 51.185" className={`${styles.logo} ${props.white ? styles.white : '' }`}>
         <g id="Group_17" data-name="Group 17" transform="translate(-504.5 -204)">
           <g id="Group_6" data-name="Group 6" transform="translate(504.5 204)">
             <path id="Path_9" data-name="Path 9" d="M673.392,211.855A45.405,45.405,0,0,0,666.408,205l-1.331-1h-145l-1.331,1a45.4,45.4,0,0,0-6.984,6.853c-4.752,5.782-7.264,11.915-7.264,17.737s2.512,11.955,7.264,17.737a45.4,45.4,0,0,0,6.984,6.853l1.331,1h145l1.331-1a45.407,45.407,0,0,0,6.984-6.853c4.752-5.782,7.264-11.915,7.264-17.737S678.144,217.637,673.392,211.855Zm-8.783,39.938-.532.4h-143l-.532-.4c-.533-.4-13.056-9.965-13.056-22.2s12.523-21.8,13.056-22.2l.532-.4h143l.532.4c.533.4,13.056,9.965,13.056,22.2S665.142,251.391,664.609,251.793Z" transform="translate(-504.5 -204)" />

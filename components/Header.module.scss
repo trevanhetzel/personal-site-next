@@ -76,6 +76,12 @@
 		fill: #000;
 	}
 
+	&.white {
+		svg {
+			fill: #fff;
+		}
+	}
+
 	@media (min-width: 660px) {
 		display: flex;
 	}
