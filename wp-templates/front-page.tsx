@@ -2,29 +2,38 @@ import React from 'react';
 import { usePosts, useGeneralSettings } from '@wpengine/headless/react';
 import { GetStaticPropsContext } from 'next';
 import { getApolloClient, getPosts } from '@wpengine/headless';
+import { useRouter } from 'next/router';
 import { Layout, Hero, Posts } from '../components';
+import { Pagination } from '@wpengine/headless/next';
 
-/**
- * Example of post variables to query the first six posts in a named category.
- * @see https://github.com/wpengine/headless-framework/tree/canary/docs/queries
- */
-const firstSixInCategory = {
-  variables: {
-    first: 6
-  },
+// Gets paginated query options from the front page URL path.
+const frontPageOptions = (url: string) => {
+  const urlParts = url.split('/').filter(Boolean);
+  const direction = urlParts[0];
+  const id = urlParts[1];
+  return {
+    variables: {
+      first: direction === 'after' || !direction ? 6 : undefined,
+      last: direction === 'before' ? 6 : undefined,
+      after: direction === 'after' ? id : undefined,
+      before: direction === 'before' ? id : undefined,
+    },
+  };
 };
 
 export default function FrontPage(props: any): JSX.Element {
-  const posts = usePosts(firstSixInCategory);
+  const router = useRouter();
+  const posts = usePosts(frontPageOptions(router.asPath));
   const settings = useGeneralSettings();
 
   return (
     <Layout secondary>
       <Hero />
+      <Posts posts={posts?.nodes} />
 
-      <Posts
-        posts={posts?.nodes}
-      />
+      <div className="pagination-container">
+        {posts?.pageInfo && <Pagination baseURL="" pageInfo={posts.pageInfo} />}
+      </div>
     </Layout>
   );
 }
@@ -32,12 +41,13 @@ export default function FrontPage(props: any): JSX.Element {
 /**
  * Get additional data from WordPress that is specific to this template.
  *
- * Here we retrieve the latest six WordPress posts in a named category to
- * display at the bottom of the front page.
- *
  * @see https://github.com/wpengine/headless-framework/tree/canary/docs/queries
  */
 export async function getStaticProps(context: GetStaticPropsContext) {
   const client = getApolloClient(context);
-  await getPosts(client, firstSixInCategory);
+  const path = Array.isArray(context?.params?.page)
+    ? context?.params?.page.join('/')
+    : '';
+  await getPosts(client, frontPageOptions(path ?? ''));
 }
+

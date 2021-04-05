@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Button from './Button';
 import styles from './Posts.module.scss';
 
-const Posts = (props) => {
+export default function Posts(props: any): JSX.Element {
   return (
 		<div className={styles.container}>
 			<section className={styles.list}>
@@ -31,5 +31,3 @@ const Posts = (props) => {
 		</div>
   );
 };
-
-export default Posts;
