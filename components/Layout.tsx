@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
 
-const Layout = (props) => (
+const Layout = (props: any) => (
 	<main>
 		<Head>
 			<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet" />

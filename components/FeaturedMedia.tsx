@@ -1,4 +1,4 @@
-const FeaturedMedia = (props) => {
+const FeaturedMedia = (props: any) => {
   return (
 		<img
 			alt={props.image.description ? props.image.description : props.image.title}

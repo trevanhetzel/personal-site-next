@@ -2,7 +2,7 @@ import styles from './Hero.module.scss'
 import Button from './Button';
 import HeroPhoto from './HeroPhoto';
 
-const Hero = () => {
+const Hero = (props: any) => {
   return (
 		<div className={`${styles.container}`}>
 			<h1>Trevan Hetzel</h1>

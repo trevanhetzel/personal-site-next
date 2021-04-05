@@ -7,7 +7,7 @@ import DribbbleIcon from "./svg/Dribbble";
 import EmailIcon from "./svg/Email";
 import SearchIcon from "./svg/Search";
 
-const Header = (props) => {
+const Header = (props: any)=> {
 	return (
 		<div className={`${styles.container} ${props.secondary ? styles.orange : '' }`}>
 			<Link href="/">
@@ -38,26 +38,26 @@ const Header = (props) => {
 
 			<ul className={`${styles.icons} ${props.secondary ? styles.white : '' }`}>
 				<li className={styles.icon}>
-					<Link href="https://twitter.com/trevanhetzel" target={ '_blank' }>
-						<a><TwitterIcon /></a>
+					<Link href="https://twitter.com/trevanhetzel">
+						<a target="_blank"><TwitterIcon /></a>
 					</Link>
 				</li>
 
 				<li className={styles.icon}>
-					<Link href="https://dribbble.com/TrevanHetzel" target={ '_blank' }>
-						<a><DribbbleIcon /></a>
+					<Link href="https://dribbble.com/TrevanHetzel">
+						<a target="_blank"><DribbbleIcon /></a>
 					</Link>
 				</li>
 
 				<li className={styles.icon}>
-					<Link href="mailto:trevan@hetzelcreative.com" target={ '_blank' }>
-						<a><EmailIcon /></a>
+					<Link href="mailto:trevan@hetzelcreative.com">
+						<a target="_blank"><EmailIcon /></a>
 					</Link>
 				</li>
 
-				<li className={styles.icon}>
+				{/* <li className={styles.icon}>
 					<SearchIcon />
-				</li>
+				</li> */}
 			</ul>
 		</div>
 	);

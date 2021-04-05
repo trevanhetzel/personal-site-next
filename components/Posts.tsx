@@ -7,7 +7,7 @@ export default function Posts(props: any): JSX.Element {
 		<div className={styles.container}>
 			<section className={styles.list}>
 				{props.posts &&
-					props.posts.map(post => {
+					props.posts.map((post: any) => {
 						const date = new Date(post.date);
 
 						return (

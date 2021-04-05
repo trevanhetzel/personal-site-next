@@ -4,8 +4,8 @@ import type { NextTemplate } from '@wpengine/headless/next';
 const templates: Templates<NextTemplate> = {
   '404': import('./404'),
   'front-page': import('./front-page'),
-  index: import('./index'),
-  category: import('./category'),
+  index: import('./404'),
+  category: import('./404'),
   page: import('./page'),
   single: import('./single'),
 };

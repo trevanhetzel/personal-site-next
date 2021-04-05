@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './Button.module.scss'
 
-const Button = (props) => {
+const Button = (props: any) => {
   return (
 		<Link href={props.url}>
 			<a className={`${styles.button} ${props.secondary ? styles.secondary : ''}`}>
